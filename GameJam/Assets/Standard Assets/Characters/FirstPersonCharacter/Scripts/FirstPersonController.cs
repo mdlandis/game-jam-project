@@ -104,11 +104,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_MoveDir.y = 0f;
             }
 
+            /*
             if(Input.GetKeyDown(KeyCode.E))
             {
                 StartDash();
             }
             ProgressDashCooldown();
+            */
 
             if (Input.GetMouseButton(0))
             {

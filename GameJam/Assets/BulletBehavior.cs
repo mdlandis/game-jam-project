@@ -10,7 +10,7 @@ public class BulletBehavior : MonoBehaviour
 
     private Vector3 forward;
     private float destroySelfTimer;
-    
+
 
     // Use this for initialization
     void Start()
@@ -22,7 +22,7 @@ public class BulletBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(destroySelfTimer <= 0)
+        if (destroySelfTimer <= 0)
         {
             Destroy(gameObject);
         }
@@ -35,9 +35,9 @@ public class BulletBehavior : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
-        if(col.collider.CompareTag("Enemy"))
+        if (col.collider.CompareTag("Enemy"))
         {
-            col.collider.gameObject.GetComponent<Rigidbody>().AddForce(forward * impact);
+            col.gameObject.GetComponent<Rigidbody>().AddForce(forward * impact);
             Vector3 torque;
             torque.x = Random.Range(-200, 200);
             torque.y = Random.Range(-200, 200);
@@ -45,8 +45,8 @@ public class BulletBehavior : MonoBehaviour
 
             col.collider.gameObject.GetComponent<Rigidbody>().AddTorque(torque);
             col.collider.SendMessage("Die");
-        }        
+        }
         Destroy(gameObject);
-        
+
     }
 }
